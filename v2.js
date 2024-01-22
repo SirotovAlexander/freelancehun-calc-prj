@@ -1,4 +1,7 @@
-const b = document.querySelector("body");
+const target = document.querySelector(
+  ".product__section .product__section--price"
+);
+
 const markup = `<div
       id="calculator_for__width_height_price"
       style="
@@ -9,9 +12,9 @@ const markup = `<div
         border-radius: 5%;
         padding: 0 0 5px 0;
         box-shadow: 10px 7px 5px 3px rgba(0, 0, 0, 0.08);
-        position: fixed;
-        bottom: 0;
-        right: 0;
+		position: fixed;
+    	bottom: 0;
+    	right: 0;
       "
     >
       <p
@@ -125,7 +128,3 @@ const markup = `<div
         </button>
       </form>
     </div>`;
-
-b.style.position = "inherit";
-
-b.insertAdjacentHTML("beforeend", markup);

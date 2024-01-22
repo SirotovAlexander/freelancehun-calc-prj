@@ -1,5 +1,5 @@
 const b = document.querySelector("body");
-const markup = `<div
+const markup = `    <div
       id="calculator_for__width_height_price"
       style="
         width: 300px;
@@ -10,8 +10,8 @@ const markup = `<div
         padding: 0 0 5px 0;
         box-shadow: 10px 7px 5px 3px rgba(0, 0, 0, 0.08);
         position: fixed;
-        bottom: 0;
-        right: 0;
+    	  bottom: 0;
+    	  right: 0;
       "
     >
       <p
@@ -103,6 +103,31 @@ const markup = `<div
           <p class="calc__price__title" style="margin: 0; width: 100px">Цена</p>
           <input
             class="price__input"
+            type="number"
+            name="price"
+            style="
+              width: 100px;
+              display: block;
+              width: 100px;
+              background-color: #f0f8ff;
+              border: none;
+            "
+          />
+        </label>
+        <label
+          style="
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+          "
+        >
+          <p class="calc__result__title" style="margin: 0; width: 100px">
+            Результат
+          </p>
+          <input
+            class="result__input"
             value=""
             name="price"
             readonly
@@ -115,7 +140,6 @@ const markup = `<div
             "
           />
         </label>
-
         <button
           class="calc__button__submite"
           type="submit"
