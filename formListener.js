@@ -1,10 +1,3 @@
-// const text = "350Lei";
-// const t = text.slice(0, text.length - 3);
-// const text2 = "18EUR";
-// const t1 = text2.slice(0, text2.length - 3);
-// console.log(t, t1);
-// document.querySelector(".product-price__item").textContent;
-
 const form = document.querySelector(".calc__form");
 form.addEventListener("submit", handleSubmit);
 
