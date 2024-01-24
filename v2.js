@@ -172,7 +172,7 @@ function createCalcMarkup(objOfLangs) {
           <input
             class="result__input"
             value=""
-            name="price"
+            name="result"
             readonly
             style="
               width: 100px;
