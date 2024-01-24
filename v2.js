@@ -78,7 +78,7 @@ function createCalcMarkup(objOfLangs) {
         overflow: hidden;
         border-radius: 5%;
         padding: 0 0 5px 0;
-        box-shadow: 10px 7px 5px 3px rgba(0, 0, 0, 0.08);
+        margin-bottom: 10px;
       "
     >
       <p
