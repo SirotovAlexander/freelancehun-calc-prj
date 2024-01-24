@@ -129,6 +129,7 @@ function createCalcMarkup(objOfLangs) {
               width: 100px;
               background-color: #f0f8ff;
               border: none;
+              text-align: center;
             "
           />
         </label>
@@ -155,6 +156,7 @@ function createCalcMarkup(objOfLangs) {
               width: 100px;
               background-color: #f0f8ff;
               border: none;
+              text-align: center;
             "
           />
         </label>
@@ -181,6 +183,7 @@ function createCalcMarkup(objOfLangs) {
               width: 100px;
               background-color: #f0f8ff;
               border: none;
+              text-align: center;
             "
           />
         </label>
