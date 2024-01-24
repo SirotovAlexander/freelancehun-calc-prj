@@ -1,8 +1,55 @@
-const target = document.querySelector(
-  ".product__section .product__section--price"
-);
+const objOfLangs = {
+  romana: [
+    "Calculați costul comenzii",
+    "Înălțimea",
+    "Lungimea",
+    "Rezultatul",
+    "Calculați",
+  ],
+  russian: [
+    "Рассчитать стоимость заказа",
+    "Высота(см)",
+    "Длина(см)",
+    "Результат",
+    "Рассчитать",
+  ],
+  english: [
+    "Calculate the cost of the order",
+    "Height",
+    "Length",
+    "Result",
+    "Calculate",
+  ],
+  french: [
+    "Calculer le coût de la commande",
+    "Hauteur",
+    "Longueur",
+    "Résultat",
+    "Calculer",
+  ],
+  italian: [
+    "Calcola il costo dellordine",
+    "Altezza",
+    "Lunghezza",
+    "Risultato",
+    "Calcola",
+  ],
+  german: ["Bestellkosten", "Höhe", "Länge", "Ergebnis berechnen", "Berechnen"],
+  spanish: [
+    "Calcular el costo del pedido",
+    "Altura",
+    "Longitud",
+    "Resultado",
+    "Calcular",
+  ],
+};
 
-const markup = `<div
+function createCalcMarkup(lang) {
+  const target = document.querySelector(
+    ".product__section.product__section--price"
+  );
+
+  const markup = `<div
       id="calculator_for__width_height_price"
       style="
         width: 300px;
@@ -114,32 +161,6 @@ const markup = `<div
             "
           />
         </label>
-        <label
-          style="
-            display: flex;
-            width: 100%;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-          "
-        >
-          <p class="calc__result__title" style="margin: 0; width: 100px">
-            Результат
-          </p>
-          <input
-            class="result__input"
-            value=""
-            name="price"
-            readonly
-            style="
-              width: 100px;
-              display: block;
-              width: 100px;
-              background-color: #f0f8ff;
-              border: none;
-            "
-          />
-        </label>
         <button
           class="calc__button__submite"
           type="submit"
@@ -150,4 +171,5 @@ const markup = `<div
       </form>
     </div>`;
 
-target.insertAdjacentHTML("afterbegin", markup);
+  target.insertAdjacentHTML("afterbegin", markup);
+}
