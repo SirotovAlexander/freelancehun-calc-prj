@@ -50,18 +50,8 @@ const objOfLangs = {
   ],
 };
 
-const photoWallpaper = document.querySelector(".products-menu__container")
-  .children[0];
-
-if (
-  photoWallpaper.className === "products-menu__item __active j-submenu-item"
-) {
-  const target = document.querySelector(
-    ".product__section.product__section--price"
-  );
-
-  target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
-}
+const target = document.querySelector("body");
+target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
 
 function createCalcMarkup(objOfLangs) {
   const bodyClass = document.querySelector("body").className;
@@ -86,7 +76,7 @@ function createCalcMarkup(objOfLangs) {
           background-color: red;
           color: white;
           margin-top: 0;
-          margin-bottom: 5;
+          margin-bottom: 5px;
           text-align: center;
         "
       >

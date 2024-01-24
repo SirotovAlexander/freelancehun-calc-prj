@@ -86,7 +86,7 @@ function createCalcMarkup(objOfLangs) {
           background-color: red;
           color: white;
           margin-top: 0;
-          margin-bottom: 5;
+          margin-bottom: 5px;
           text-align: center;
         "
       >
