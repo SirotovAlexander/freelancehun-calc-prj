@@ -59,8 +59,9 @@ if (
   const target = document.querySelector(
     ".product__section.product__section--price"
   );
-
-  target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
+  if (target !== null) {
+    target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
+  }
 }
 
 function createCalcMarkup(objOfLangs) {
