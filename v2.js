@@ -1,54 +1,61 @@
-const target = document.querySelector(
-  ".product__section.product__section--price"
-);
+// const objOfLangs = {
+//   romana: [
+//     "Calculați costul comenzii",
+//     "Înălțimea",
+//     "Lungimea",
+//     "Rezultatul",
+//     "Calculați",
+//   ],
+//   russian: [
+//     "Рассчитать стоимость заказа",
+//     "Высота(см)",
+//     "Длина(см)",
+//     "Результат",
+//     "Рассчитать",
+//   ],
+//   english: [
+//     "Calculate the cost of the order",
+//     "Height",
+//     "Length",
+//     "Result",
+//     "Calculate",
+//   ],
+//   french: [
+//     "Calculer le coût de la commande",
+//     "Hauteur",
+//     "Longueur",
+//     "Résultat",
+//     "Calculer",
+//   ],
+//   italian: [
+//     "Calcola il costo dellordine",
+//     "Altezza",
+//     "Lunghezza",
+//     "Risultato",
+//     "Calcola",
+//   ],
+//   german: ["Bestellkosten", "Höhe", "Länge", "Ergebnis berechnen", "Berechnen"],
+//   spanish: [
+//     "Calcular el costo del pedido",
+//     "Altura",
+//     "Longitud",
+//     "Resultado",
+//     "Calcular",
+//   ],
+// };
 
-target.insertAdjacentHTML("afterbegin", createCalcMarkup());
+const photoWallpaper = document.querySelector(".products-menu__container")
+  .children[0];
 
-const objOfLangs = {
-  romana: [
-    "Calculați costul comenzii",
-    "Înălțimea",
-    "Lungimea",
-    "Rezultatul",
-    "Calculați",
-  ],
-  russian: [
-    "Рассчитать стоимость заказа",
-    "Высота(см)",
-    "Длина(см)",
-    "Результат",
-    "Рассчитать",
-  ],
-  english: [
-    "Calculate the cost of the order",
-    "Height",
-    "Length",
-    "Result",
-    "Calculate",
-  ],
-  french: [
-    "Calculer le coût de la commande",
-    "Hauteur",
-    "Longueur",
-    "Résultat",
-    "Calculer",
-  ],
-  italian: [
-    "Calcola il costo dellordine",
-    "Altezza",
-    "Lunghezza",
-    "Risultato",
-    "Calcola",
-  ],
-  german: ["Bestellkosten", "Höhe", "Länge", "Ergebnis berechnen", "Berechnen"],
-  spanish: [
-    "Calcular el costo del pedido",
-    "Altura",
-    "Longitud",
-    "Resultado",
-    "Calcular",
-  ],
-};
+if (
+  photoWallpaper.className === ".products-menu__item.__active.j-submenu-item"
+) {
+  const target = document.querySelector(
+    "products-menu__item __active j-submenu-item"
+  );
+
+  target.insertAdjacentHTML("afterbegin", createCalcMarkup());
+}
 
 function createCalcMarkup() {
   const markup = `<div

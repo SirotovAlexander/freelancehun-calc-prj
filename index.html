@@ -10,6 +10,19 @@
     <div><p>DIVI</p></div>
     <div><p>DIVI</p></div>
     <script>
+      const photoWallpaper = document.querySelector(".products-menu__container")
+        .children[0];
+      if (
+        photoWallpaper.className ===
+        "products-menu__item __active j-submenu-item"
+      ) {
+        const target = document.querySelector(
+          ".product__section.product__section--price"
+        );
+
+        target.insertAdjacentHTML("afterbegin", createCalcMarkup());
+      }
+
       function createCalcMarkup() {
         const markup = `<div
       id="calculator_for__width_height_price"
@@ -135,8 +148,6 @@
 
         return markup;
       }
-      const target = document.querySelector("body");
-      target.insertAdjacentHTML("afterbegin", createCalcMarkup());
     </script>
   </body>
 </html>
