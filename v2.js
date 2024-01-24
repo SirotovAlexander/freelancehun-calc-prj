@@ -1,63 +1,73 @@
-// const objOfLangs = {
-//   romana: [
-//     "Calculați costul comenzii",
-//     "Înălțimea",
-//     "Lungimea",
-//     "Rezultatul",
-//     "Calculați",
-//   ],
-//   russian: [
-//     "Рассчитать стоимость заказа",
-//     "Высота(см)",
-//     "Длина(см)",
-//     "Результат",
-//     "Рассчитать",
-//   ],
-//   english: [
-//     "Calculate the cost of the order",
-//     "Height",
-//     "Length",
-//     "Result",
-//     "Calculate",
-//   ],
-//   french: [
-//     "Calculer le coût de la commande",
-//     "Hauteur",
-//     "Longueur",
-//     "Résultat",
-//     "Calculer",
-//   ],
-//   italian: [
-//     "Calcola il costo dellordine",
-//     "Altezza",
-//     "Lunghezza",
-//     "Risultato",
-//     "Calcola",
-//   ],
-//   german: ["Bestellkosten", "Höhe", "Länge", "Ergebnis berechnen", "Berechnen"],
-//   spanish: [
-//     "Calcular el costo del pedido",
-//     "Altura",
-//     "Longitud",
-//     "Resultado",
-//     "Calcular",
-//   ],
-// };
+const objOfLangs = {
+  "ro-RO": [
+    "Calculați costul comenzii",
+    "Înălțimea",
+    "Lungimea",
+    "Rezultatul",
+    "Calculați",
+  ],
+  "ru-RU": [
+    "Рассчитать стоимость заказа",
+    "Высота(см)",
+    "Длина(см)",
+    "Результат",
+    "Рассчитать",
+  ],
+  "en-US": [
+    "Calculate the cost of the order",
+    "Height",
+    "Length",
+    "Result",
+    "Calculate",
+  ],
+  "fr-FR": [
+    "Calculer le coût de la commande",
+    "Hauteur",
+    "Longueur",
+    "Résultat",
+    "Calculer",
+  ],
+  "it-IT": [
+    "Calcola il costo dellordine",
+    "Altezza",
+    "Lunghezza",
+    "Risultato",
+    "Calcola",
+  ],
+  "de-DE": [
+    "Bestellkosten",
+    "Höhe",
+    "Länge",
+    "Ergebnis berechnen",
+    "Berechnen",
+  ],
+  "es-ES": [
+    "Calcular el costo del pedido",
+    "Altura",
+    "Longitud",
+    "Resultado",
+    "Calcular",
+  ],
+};
 
 const photoWallpaper = document.querySelector(".products-menu__container")
   .children[0];
 
 if (
-  photoWallpaper.className === ".products-menu__item.__active.j-submenu-item"
+  photoWallpaper.className === "products-menu__item __active j-submenu-item"
 ) {
   const target = document.querySelector(
-    "products-menu__item __active j-submenu-item"
+    ".product__section.product__section--price"
   );
 
-  target.insertAdjacentHTML("afterbegin", createCalcMarkup());
+  target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
 }
 
-function createCalcMarkup() {
+function createCalcMarkup(objOfLangs) {
+  const bodyClass = document.querySelector("body").className;
+  const keys = Object.keys(objOfLangs);
+  const filterKeys = keys.filter((key) => bodyClass.includes(key));
+
   const markup = `<div
       id="calculator_for__width_height_price"
       style="
@@ -68,6 +78,9 @@ function createCalcMarkup() {
         border-radius: 5%;
         padding: 0 0 5px 0;
         box-shadow: 10px 7px 5px 3px rgba(0, 0, 0, 0.08);
+        position: fixed;
+    	  bottom: 0;
+    	  right: 0;
       "
     >
       <p
@@ -80,7 +93,7 @@ function createCalcMarkup() {
           text-align: center;
         "
       >
-        Рассчитать стоимость заказа:
+        ${objOfLangs[filterKeys[0]][0]}
       </p>
       <form
         class="calc__form"
@@ -107,7 +120,7 @@ function createCalcMarkup() {
           "
         >
           <p class="calc__height__title" style="margin: 0; width: 100px">
-            Высота(cм)
+            ${objOfLangs[filterKeys[0]][1]}
           </p>
           <input
             class="height__input"
@@ -132,7 +145,7 @@ function createCalcMarkup() {
           "
         >
           <p class="calc__width__title" style="margin: 0; width: 100px">
-            Длина(см)
+            ${objOfLangs[filterKeys[0]][2]}
           </p>
           <input
             class="width__input"
@@ -156,11 +169,14 @@ function createCalcMarkup() {
             align-items: center;
           "
         >
-          <p class="calc__price__title" style="margin: 0; width: 100px">Цена</p>
+          <p class="calc__result__title" style="margin: 0; width: 100px">
+            ${objOfLangs[filterKeys[0]][3]}
+          </p>
           <input
-            class="price__input"
-            type="number"
+            class="result__input"
+            value=""
             name="price"
+            readonly
             style="
               width: 100px;
               display: block;
@@ -175,7 +191,7 @@ function createCalcMarkup() {
           type="submit"
           style="background-color: #f0f8ff; border: 1px solid"
         >
-          Рассчитать
+          ${objOfLangs[filterKeys[0]][4]}
         </button>
       </form>
     </div>`;
