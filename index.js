@@ -1,5 +1,74 @@
-const b = document.querySelector("body");
-const markup = `<div
+const objOfLangs = {
+  "ro-RO": [
+    "Calculați costul comenzii",
+    "Înălțimea",
+    "Lungimea",
+    "Rezultatul",
+    "Calculați",
+  ],
+  "ru-RU": [
+    "Рассчитать стоимость заказа",
+    "Высота(см)",
+    "Длина(см)",
+    "Результат",
+    "Рассчитать",
+  ],
+  "en-US": [
+    "Calculate the cost of the order",
+    "Height",
+    "Length",
+    "Result",
+    "Calculate",
+  ],
+  "fr-FR": [
+    "Calculer le coût de la commande",
+    "Hauteur",
+    "Longueur",
+    "Résultat",
+    "Calculer",
+  ],
+  "it-IT": [
+    "Calcola il costo dellordine",
+    "Altezza",
+    "Lunghezza",
+    "Risultato",
+    "Calcola",
+  ],
+  "de-DE": [
+    "Bestellkosten",
+    "Höhe",
+    "Länge",
+    "Ergebnis berechnen",
+    "Berechnen",
+  ],
+  "es-ES": [
+    "Calcular el costo del pedido",
+    "Altura",
+    "Longitud",
+    "Resultado",
+    "Calcular",
+  ],
+};
+
+const photoWallpaper = document.querySelector(".products-menu__container")
+  .children[0];
+
+if (
+  photoWallpaper.className === "products-menu__item __active j-submenu-item"
+) {
+  const target = document.querySelector(
+    ".product__section.product__section--price"
+  );
+
+  target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
+}
+
+function createCalcMarkup(objOfLangs) {
+  const bodyClass = document.querySelector("body").className;
+  const keys = Object.keys(objOfLangs);
+  const filterKeys = keys.filter((key) => bodyClass.includes(key));
+
+  const markup = `<div
       id="calculator_for__width_height_price"
       style="
         width: 300px;
@@ -9,9 +78,6 @@ const markup = `<div
         border-radius: 5%;
         padding: 0 0 5px 0;
         box-shadow: 10px 7px 5px 3px rgba(0, 0, 0, 0.08);
-        position: fixed;
-    	  bottom: 0;
-    	  right: 0;
       "
     >
       <p
@@ -24,7 +90,7 @@ const markup = `<div
           text-align: center;
         "
       >
-        Рассчитать стоимость заказа:
+        ${objOfLangs[filterKeys[0]][0]}
       </p>
       <form
         class="calc__form"
@@ -51,7 +117,7 @@ const markup = `<div
           "
         >
           <p class="calc__height__title" style="margin: 0; width: 100px">
-            Высота(cм)
+            ${objOfLangs[filterKeys[0]][1]}
           </p>
           <input
             class="height__input"
@@ -76,7 +142,7 @@ const markup = `<div
           "
         >
           <p class="calc__width__title" style="margin: 0; width: 100px">
-            Длина(см)
+            ${objOfLangs[filterKeys[0]][2]}
           </p>
           <input
             class="width__input"
@@ -101,7 +167,7 @@ const markup = `<div
           "
         >
           <p class="calc__result__title" style="margin: 0; width: 100px">
-            Результат
+            ${objOfLangs[filterKeys[0]][3]}
           </p>
           <input
             class="result__input"
@@ -122,11 +188,10 @@ const markup = `<div
           type="submit"
           style="background-color: #f0f8ff; border: 1px solid"
         >
-          Рассчитать
+          ${objOfLangs[filterKeys[0]][4]}
         </button>
       </form>
     </div>`;
 
-b.style.position = "inherit";
-
-b.insertAdjacentHTML("beforeend", markup);
+  return markup;
+}
