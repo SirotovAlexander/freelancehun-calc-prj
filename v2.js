@@ -1,3 +1,9 @@
+const target = document.querySelector(
+  ".product__section.product__section--price"
+);
+
+target.insertAdjacentHTML("afterbegin", createCalcMarkup());
+
 const objOfLangs = {
   romana: [
     "Calculați costul comenzii",
@@ -44,11 +50,7 @@ const objOfLangs = {
   ],
 };
 
-function createCalcMarkup(lang) {
-  const target = document.querySelector(
-    ".product__section.product__section--price"
-  );
-
+function createCalcMarkup() {
   const markup = `<div
       id="calculator_for__width_height_price"
       style="
@@ -171,5 +173,5 @@ function createCalcMarkup(lang) {
       </form>
     </div>`;
 
-  target.insertAdjacentHTML("afterbegin", markup);
+  return markup;
 }
