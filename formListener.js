@@ -17,8 +17,7 @@ if (document.querySelector(".calc__form") !== null) {
     const w = Number(form.elements.width.value);
 
     const r = Math.round(h * w * 0.0001 * price);
-    form.elements.height.value = "";
-    form.elements.width.value = "";
+
     form.elements.result.value = r;
   }
 }
