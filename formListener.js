@@ -5,9 +5,13 @@ if (document.querySelector(".calc__form") !== null) {
   function handleSubmit(event) {
     event.preventDefault();
     let price = 0;
-    const divText =
-      document.querySelector(".product-price__item").textContent ||
-      document.querySelector(".product-card__price").textContent;
+    let divText = null;
+
+    const check = document.querySelector(".product-price__item");
+
+    check === null
+      ? (divText = document.querySelector(".product-card__price").textContent)
+      : (divText = document.querySelector(".product-price__item").textContent);
 
     if (divText.includes("350Lei")) {
       price = 350;
