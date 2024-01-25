@@ -4,8 +4,20 @@ if (document.querySelector(".calc__form") !== null) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const divText = document.querySelector(".product-price__item").textContent;
     let price = 0;
+    const divText = document.querySelector(".product-price__item").textContent;
+
+    if (divText === null) {
+      const mobileDivText = document.querySelector(
+        ".product-card__price"
+      ).textContent;
+      if (mobileDivText.includes("350Lei")) {
+        price = 350;
+      } else {
+        price = 18;
+      }
+    }
+
     if (divText.includes("350Lei")) {
       price = 350;
     } else {
