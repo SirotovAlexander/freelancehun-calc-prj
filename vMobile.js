@@ -1,17 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body class="homepage ru-RU">
-    <div><p>DIVI</p></div>
-    <div><p>DIVI</p></div>
-    <div><p>DIVI</p></div>
-    <script src="./test.js"></script>
-    `
-    <div
+document.querySelector("html").lang;
+const objOfLangs = {
+  "ro-RO": [
+    "Calculați costul comenzii",
+    "Înălțimea",
+    "Lungimea",
+    "Rezultatul",
+    "Calculați",
+  ],
+  "ru-RU": [
+    "Рассчитать стоимость заказа",
+    "Высота(см)",
+    "Длина(см)",
+    "Результат",
+    "Рассчитать",
+  ],
+  "en-US": [
+    "Calculate the cost of the order",
+    "Height",
+    "Length",
+    "Result",
+    "Calculate",
+  ],
+  "fr-FR": [
+    "Calculer le coût de la commande",
+    "Hauteur",
+    "Longueur",
+    "Résultat",
+    "Calculer",
+  ],
+  "it-IT": [
+    "Calcola il costo dellordine",
+    "Altezza",
+    "Lunghezza",
+    "Risultato",
+    "Calcola",
+  ],
+  "de-DE": [
+    "Bestellkosten",
+    "Höhe",
+    "Länge",
+    "Ergebnis berechnen",
+    "Berechnen",
+  ],
+  "es-ES": [
+    "Calcular el costo del pedido",
+    "Altura",
+    "Longitud",
+    "Resultado",
+    "Calcular",
+  ],
+};
+
+const URL = JSON.stringify(window.location.href);
+
+if (URL.includes("fototapet")) {
+  const target = document.querySelector(
+    ".product__section.product__section--price"
+  );
+
+  if (target !== null) {
+    target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
+  }
+}
+
+function createCalcMarkup(objOfLangs) {
+  const bodyClass = document.querySelector("body").className;
+  const keys = Object.keys(objOfLangs);
+  const filterKeys = keys.filter((key) => bodyClass.includes(key));
+
+  const markup = `<div
       id="calculator_for__width_height_price"
       style="
         width: 300px;
@@ -145,7 +202,7 @@
           ${objOfLangs[filterKeys[0]][4]}
         </button>
       </form>
-    </div>
-    `
-  </body>
-</html>
+    </div>`;
+
+  return markup;
+}

@@ -185,21 +185,21 @@ function createCalcMarkup(objOfLangs) {
             "
           />
         </label>
-    <button
-  class="calc__button__submite"
-  type="submit"
-  style="
-    color: #fff;
-    border: #000;
-    background: #ef1617;
-    box-shadow: none;
-    border-radius: 6%;
-    width: 90px;
-    height: 25px;
-  "
->
-  ${objOfLangs[filterKeys[0]][4]}
-</button>
+        <button
+          class="calc__button__submite"
+          type="submit"
+          style="
+            color: #fff;
+            border: #000;
+            background: #ef1617;
+            box-shadow: none;
+            border-radius: 6%;
+            width: 90px;
+            height: 25px;
+          "
+        >
+          ${objOfLangs[filterKeys[0]][4]}
+        </button>
       </form>
     </div>`;
 
