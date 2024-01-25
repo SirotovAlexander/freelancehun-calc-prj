@@ -196,7 +196,7 @@ function createCalcMarkup(objOfLangs) {
     background: #ef1617;
     box-shadow: none;
     border-radius: 6%;
-    width: 70px;
+    width: 90px;
     height: 25px;
   "
 >
