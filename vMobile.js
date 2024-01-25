@@ -44,9 +44,9 @@ const objLangs = {
   ],
 };
 
-const URL = JSON.stringify(window.location.href);
+const mobileURL = JSON.stringify(window.location.href);
 
-if (URL.includes("fototapet")) {
+if (mobileURL.includes("fototapet")) {
   const targetMobile = document.querySelector(".product-card__presence");
 
   if (targetMobile !== null) {
