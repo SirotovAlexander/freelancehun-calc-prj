@@ -1,48 +1,41 @@
-document.querySelector("html").lang;
 const objOfLangs = {
-  "ro-RO": [
+  ro: [
     "Calculați costul comenzii",
     "Înălțimea",
     "Lungimea",
     "Rezultatul",
     "Calculați",
   ],
-  "ru-RU": [
+  ru: [
     "Рассчитать стоимость заказа",
     "Высота(см)",
     "Длина(см)",
     "Результат",
     "Рассчитать",
   ],
-  "en-US": [
+  en: [
     "Calculate the cost of the order",
     "Height",
     "Length",
     "Result",
     "Calculate",
   ],
-  "fr-FR": [
+  fr: [
     "Calculer le coût de la commande",
     "Hauteur",
     "Longueur",
     "Résultat",
     "Calculer",
   ],
-  "it-IT": [
+  it: [
     "Calcola il costo dellordine",
     "Altezza",
     "Lunghezza",
     "Risultato",
     "Calcola",
   ],
-  "de-DE": [
-    "Bestellkosten",
-    "Höhe",
-    "Länge",
-    "Ergebnis berechnen",
-    "Berechnen",
-  ],
-  "es-ES": [
+  de: ["Bestellkosten", "Höhe", "Länge", "Ergebnis berechnen", "Berechnen"],
+  es: [
     "Calcular el costo del pedido",
     "Altura",
     "Longitud",
@@ -54,19 +47,17 @@ const objOfLangs = {
 const URL = JSON.stringify(window.location.href);
 
 if (URL.includes("fototapet")) {
-  const target = document.querySelector(
-    ".product__section.product__section--price"
-  );
+  const targetMobile = document.querySelector(".product-card__presence");
 
-  if (target !== null) {
-    target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
+  if (targetMobile !== null) {
+    targetMobile.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
   }
 }
 
 function createCalcMarkup(objOfLangs) {
-  const bodyClass = document.querySelector("body").className;
+  const webpageLang = document.querySelector("html").lang;
   const keys = Object.keys(objOfLangs);
-  const filterKeys = keys.filter((key) => bodyClass.includes(key));
+  const filterKeys = keys.filter((key) => webpageLang.includes(key));
 
   const markup = `<div
       id="calculator_for__width_height_price"
