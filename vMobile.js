@@ -62,13 +62,15 @@ function createCalcMarkup(objOfLangs) {
   const markup = `<div
       id="calculator_for__width_height_price"
       style="
-        width: 300px;
+        width: 100%;
         margin: 0;
         border: 1px solid;
         overflow: hidden;
         border-radius: 5%;
         padding: 0 0 5px 0;
         margin-bottom: 10px;
+		background-color: white;
+
       "
     >
       <p
