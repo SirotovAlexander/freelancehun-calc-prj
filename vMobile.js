@@ -1,4 +1,4 @@
-const objOfLangs = {
+const objLangs = {
   ro: [
     "Calculați costul comenzii",
     "Înălțimea",
@@ -56,7 +56,7 @@ if (URL.includes("fototapet")) {
 
 function createCalcMarkup(objOfLangs) {
   const webpageLang = document.querySelector("html").lang;
-  const keys = Object.keys(objOfLangs);
+  const keys = Object.keys(objLangs);
   const filterKeys = keys.filter((key) => webpageLang.includes(key));
 
   const markup = `<div
@@ -83,7 +83,7 @@ function createCalcMarkup(objOfLangs) {
           text-align: center;
         "
       >
-        ${objOfLangs[filterKeys[0]][0]}
+        ${objLangs[filterKeys[0]][0]}
       </p>
       <form
         class="calc__form"
@@ -110,7 +110,7 @@ function createCalcMarkup(objOfLangs) {
           "
         >
           <p class="calc__height__title" style="margin: 0; width: 100px">
-            ${objOfLangs[filterKeys[0]][1]}
+            ${objLangs[filterKeys[0]][1]}
           </p>
           <input
             class="height__input"
@@ -136,7 +136,7 @@ function createCalcMarkup(objOfLangs) {
           "
         >
           <p class="calc__width__title" style="margin: 0; width: 100px">
-            ${objOfLangs[filterKeys[0]][2]}
+            ${objLangs[filterKeys[0]][2]}
           </p>
           <input
             class="width__input"
@@ -162,7 +162,7 @@ function createCalcMarkup(objOfLangs) {
           "
         >
           <p class="calc__result__title" style="margin: 0; width: 100px">
-            ${objOfLangs[filterKeys[0]][3]}
+            ${objLangs[filterKeys[0]][3]}
           </p>
           <input
             class="result__input"
@@ -192,7 +192,7 @@ function createCalcMarkup(objOfLangs) {
             height: 25px;
           "
         >
-          ${objOfLangs[filterKeys[0]][4]}
+          ${objLangs[filterKeys[0]][4]}
         </button>
       </form>
     </div>`;
