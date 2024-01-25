@@ -1,86 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body class="homepage ru-RU">
-    <div><p>DIVI</p></div>
-    <div><p>DIVI</p></div>
-    <div><p>DIVI</p></div>
-    <script src="./test.js"></script>
-    <script>
-      const objOfLangs = {
-        "ro-RO": [
-          "Calculați costul comenzii",
-          "Înălțimea",
-          "Lungimea",
-          "Rezultatul",
-          "Calculați",
-        ],
-        "ru-RU": [
-          "Рассчитать стоимость заказа",
-          "Высота(см)",
-          "Длина(см)",
-          "Результат",
-          "Рассчитать",
-        ],
-        "en-US": [
-          "Calculate the cost of the order",
-          "Height",
-          "Length",
-          "Result",
-          "Calculate",
-        ],
-        "fr-FR": [
-          "Calculer le coût de la commande",
-          "Hauteur",
-          "Longueur",
-          "Résultat",
-          "Calculer",
-        ],
-        "it-IT": [
-          "Calcola il costo dellordine",
-          "Altezza",
-          "Lunghezza",
-          "Risultato",
-          "Calcola",
-        ],
-        "de-DE": [
-          "Bestellkosten",
-          "Höhe",
-          "Länge",
-          "Ergebnis berechnen",
-          "Berechnen",
-        ],
-        "es-ES": [
-          "Calcular el costo del pedido",
-          "Altura",
-          "Longitud",
-          "Resultado",
-          "Calcular",
-        ],
-      };
+const objOfLangs = {
+  "ro-RO": [
+    "Calculați costul comenzii",
+    "Înălțimea",
+    "Lungimea",
+    "Rezultatul",
+    "Calculați",
+  ],
+  "ru-RU": [
+    "Рассчитать стоимость заказа",
+    "Высота(см)",
+    "Длина(см)",
+    "Результат",
+    "Рассчитать",
+  ],
+  "en-US": [
+    "Calculate the cost of the order",
+    "Height",
+    "Length",
+    "Result",
+    "Calculate",
+  ],
+  "fr-FR": [
+    "Calculer le coût de la commande",
+    "Hauteur",
+    "Longueur",
+    "Résultat",
+    "Calculer",
+  ],
+  "it-IT": [
+    "Calcola il costo dellordine",
+    "Altezza",
+    "Lunghezza",
+    "Risultato",
+    "Calcola",
+  ],
+  "de-DE": [
+    "Bestellkosten",
+    "Höhe",
+    "Länge",
+    "Ergebnis berechnen",
+    "Berechnen",
+  ],
+  "es-ES": [
+    "Calcular el costo del pedido",
+    "Altura",
+    "Longitud",
+    "Resultado",
+    "Calcular",
+  ],
+};
 
-      const URL = JSON.stringify(window.location.href);
+const URL = JSON.stringify(window.location.href);
 
-      if (URL.includes("fototapet")) {
-        const target = document.querySelector(
-          ".product__section.product__section--price"
-        );
+if (URL.includes("fototapet")) {
+  const target = document.querySelector(
+    ".product__section.product__section--price"
+  );
 
-        if (target !== null) {
-          target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
-        }
-      }
+  if (target !== null) {
+    target.insertAdjacentHTML("afterbegin", createCalcMarkup(objOfLangs));
+  }
+}
 
-      function createCalcMarkup(objOfLangs) {
-        const bodyClass = document.querySelector("body").className;
-        const keys = Object.keys(objOfLangs);
-        const filterKeys = keys.filter((key) => bodyClass.includes(key));
+function createCalcMarkup(objOfLangs) {
+  const bodyClass = document.querySelector("body").className;
+  const keys = Object.keys(objOfLangs);
+  const filterKeys = keys.filter((key) => bodyClass.includes(key));
 
-        const markup = `<div
+  const markup = `<div
       id="calculator_for__width_height_price"
       style="
         width: 300px;
@@ -216,36 +203,5 @@
       </form>
     </div>`;
 
-        return markup;
-      }
-    </script>
-    <script>
-      if (document.querySelector(".calc__form") !== null) {
-        const form = document.querySelector(".calc__form");
-        form.addEventListener("submit", handleSubmit);
-
-        function handleSubmit(event) {
-          event.preventDefault();
-          const divText = document.querySelector(
-            ".product-price__item"
-          ).textContent;
-          let price = 0;
-          if (divText.includes("350Lei")) {
-            price = 350;
-          } else {
-            price = 18;
-          }
-
-          const form = event.target;
-          const h = Number(form.elements.height.value);
-          const w = Number(form.elements.width.value);
-
-          const r = Math.round(h * w * 0.0001 * price);
-          form.elements.height.value = "";
-          form.elements.width.value = "";
-          form.elements.result.value = r;
-        }
-      }
-    </script>
-  </body>
-</html>
+  return markup;
+}

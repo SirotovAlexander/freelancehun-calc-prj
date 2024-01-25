@@ -1,3 +1,3 @@
-const URL = window.location.href;
-const check = JSON.stringify(URL).includes("500");
-console.log(check);
+const URL = JSON.stringify(window.location.href);
+
+console.log(URL);
